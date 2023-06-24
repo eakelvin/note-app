@@ -6,19 +6,24 @@ import { useSelector } from 'react-redux'
 
 
 function Home() {
-  const notes = useSelector((state) => state.notes)
-  const [finalNotes, setFinalNotes] = useState(notes)
+  // const notes = useSelector((state) => state.notes)
+  // const [finalNotes, setFinalNotes] = useState(notes)
 
-  const handleSearch = (value) => {
-    const filteredNotes = notes.filter( (note) => note.title.toLowerCase().includes(value.toLowerCase()))
-    setFinalNotes(filteredNotes)
-  }
+  // const handleSearch = (value) => {
+  //   const filteredNotes = notes.filter( (note) => note.title.toLowerCase().includes(value.toLowerCase()))
+  //   setFinalNotes(filteredNotes)
+  // }
+
+  // const handleDeleteNote = (id) => {
+  //   const updatedNotes = notes.filter((note) => note.id !== id)
+  //   setFinalNotes(updatedNotes)
+  // }
 
   return (
     <>
       <Navbar />
-      <Search handleSearch={handleSearch} />
-      <Notes finalNotes={finalNotes} />
+      <Search />
+      <Notes />
     </>
   )
 }

@@ -28,7 +28,11 @@ const notesSlice = createSlice({
             }
         },
         deleteNote: (state, action) => {
-            return state.filter(note => note.id !== action.payload.id);
+            const {id} = action.payload
+            const updatedNote = state.find(note => note.id == id)
+            if (updatedNote) {
+                return state.filter(item => item.id !== id)
+            }
         }
 
     }
