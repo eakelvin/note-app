@@ -1,16 +1,19 @@
 import React from 'react'
-import EditNote from './EditNote'
 
-function Modal({ isVisible, onClose }) {
+function Modal({ isVisible, onClose, children }) {
     if (!isVisible) return null
+
+    const handleClose = (event) => {
+      if ( event.target.id === 'wrapper' ) onClose()
+    }
 
   return (
     <>
-    <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-        <div className='w-[500px]'>
-            <button onClick={() => onClose()} className='text-xl place-self-end'>X</button>
-            <div className='bg-white p-10 rounded py-6 px-6'>
-                <EditNote  />
+    <div id='wrapper' onClick={handleClose} className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
+        <div className='w-[600px]'>
+        <button onClick={() => onClose()} className='text-xl place-self-end text-black'>X</button>
+            <div className='bg-white p-2 rounded'>
+                {children}
             </div>
         </div>
     </div>

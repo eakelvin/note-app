@@ -43,7 +43,7 @@ function EditNote(props) {
 
   return (
     <div>
-        <div className='pt-10 flex items-center justify-center'>
+        <div className=''>
         <div className='p-5'>
           <h1 className='font-bold text-center'>Edit Note :) </h1>
 
@@ -54,7 +54,7 @@ function EditNote(props) {
                 value={updatedNotes.title}
                 onChange={handleChange} 
                 placeholder='Title' />
-          <textarea className='p-2 border-4 border-black-500/50 resize-none leading-6 w-full lg:resize' cols="100" rows="20"
+          <textarea className='p-2 border-4 border-black-500/50' cols="" rows="15"
                     name="description"
                     value={updatedNotes.description}
                     onChange={handleChange} />

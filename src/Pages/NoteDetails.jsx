@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Modal from '../Components/Modal'
+import EditNote from '../Components/EditNote'
 
 
 function NoteDetails() {
@@ -23,7 +24,11 @@ function NoteDetails() {
         <h1>{noteDetails.title}</h1>
         <p>{noteDetails.description}</p>
     </div>
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)}></Modal>
+      <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
+        <div className=''>
+        <EditNote />
+        </div>
+      </Modal>
     </>
   )
 }
