@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteNote } from './UserReducer'
 
-function Notes() {
+function Notes(props) {
     const notes = useSelector((state) => state.notes)
     const dispatch = useDispatch()
 
@@ -15,7 +15,7 @@ function Notes() {
     <>
         <div className="grid grid-cols-1 px-10">
             {
-                notes.map((item, index) => (
+                props.finalNotes.map((item, index) => (
                     <div className='border-2 border-indigo-600 p-6 mt-5' key={index} item={item}>
                         <div className='font-bold text-red-400 text-3xl'>{item.title}</div>
                         <div>{item.description.slice(0, 100)}</div>
