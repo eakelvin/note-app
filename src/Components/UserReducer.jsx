@@ -33,10 +33,20 @@ const notesSlice = createSlice({
             if (updatedNote) {
                 return state.filter(item => item.id !== id)
             }
+        },
+        searchNote: (state, action) => {
+            // return state.filter((note) => note.type === action.payload)
+            const { id } = action.payload;
+            const searchResults =  state.filter((note) => {
+                const titleMatch = note.title.toLowerCase().includes(id.toLowerCase());
+                // const descriptionMatch = note.description.toLowerCase().includes(id.toLowerCase());
+                return titleMatch
+            });
+            return searchResults
         }
 
     }
 })
 
-export const { addNote, editNote, deleteNote } = notesSlice.actions
+export const { addNote, editNote, deleteNote, searchNote } = notesSlice.actions
 export default notesSlice.reducer
